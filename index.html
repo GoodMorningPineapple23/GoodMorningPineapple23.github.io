@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Raheem — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ HERO ═══ -->
+  <section id="hero">
+    <canvas id="grid-canvas"></canvas>
+    <div class="hero-center">
+      <div class="profile-ring">
+        <img src="placeholder-profile.jpg" alt="Abdul Raheem" class="profile-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="profile-fallback">AR</div>
+      </div>
+    </div>
+    <div class="hero-bottom-left">
+      <p class="hero-name">Abdul Raheem</p>
+      <p class="hero-title">Student at LUMS &nbsp;·&nbsp; CS &nbsp;·&nbsp; Lahore, Pakistan</p>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ EDUCATION ═══ -->
+  <section id="education">
+    <div class="section-label">02 — Education</div>
+    <div class="book-wrapper">
+      <div class="book" id="book">
+        <div class="book-spine"></div>
+        <div class="page page-left" id="page-left">
+          <div class="page-content">
+            <div class="page-header">Academic Journey</div>
+            <div class="edu-entry">
+              <div class="edu-badge">O Levels</div>
+              <div class="edu-year">2021 – 2022</div>
+              <div class="edu-school">FFC Grammar School and College</div>
+              <div class="edu-grade">9A* · 1A</div>
+              <div class="edu-subjects">Urdu · Islamiyat · Pak Studies · Economics · CS · Maths · Physics · Chemistry · English · Add. Maths</div>
+            </div>
+            <div class="edu-entry">
+              <div class="edu-badge">AS Levels</div>
+              <div class="edu-year">2023 – 2024</div>
+              <div class="edu-school">FFC Grammar School and College</div>
+              <div class="edu-grade">5A</div>
+              <div class="edu-subjects">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
+            </div>
+          </div>
+        </div>
+        <div class="page page-right" id="page-right">
+          <div class="page-content">
+            <div class="page-header">Continued</div>
+            <div class="edu-entry">
+              <div class="edu-badge">A Levels</div>
+              <div class="edu-year">2024 – 2025</div>
+              <div class="edu-school">FFC Grammar School and College</div>
+              <div class="edu-grade">2A* · 3A</div>
+              <div class="edu-subjects">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
+            </div>
+            <div class="edu-entry">
+              <div class="edu-badge lums-badge">BSc CS</div>
+              <div class="edu-year">2025 – Present</div>
+              <div class="edu-school">LUMS — Lahore University of Management Sciences</div>
+              <div class="edu-grade">Rising Sophomore</div>
+              <div class="edu-subjects">Bachelor of Science in Computer Science</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="book-shadow"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ INTERNSHIPS ═══ -->
+  <section id="internships">
+    <div class="section-label">03 — Experience &amp; Courses</div>
+    <div class="section-title">Internships &amp; Learning</div>
+    <div class="panels-grid">
+
+      <div class="panel" data-delay="0">
+        <div class="panel-tag">Industry Internship</div>
+        <div class="panel-top">
+          <span class="panel-icon">⚙</span>
+          <span class="panel-date">Jul – Aug 2024</span>
+        </div>
+        <h3 class="panel-title">Student Intern</h3>
+        <p class="panel-company">Fauji Fertilizer Company Limited<br><small>Mirpur Mathelo</small></p>
+        <ul class="panel-list">
+          <li>Met mechanical, chemical &amp; electrical engineers — mapped each role's scope.</li>
+          <li>Session with Head of IT deepened understanding of technology in industrial efficiency.</li>
+          <li>Learned advanced data management via customised SAP; observed firewall &amp; encryption practices.</li>
+          <li>Delivered a presentation on Web3 &amp; blockchain to enhance the company's digital infrastructure.</li>
+        </ul>
+      </div>
+
+      <div class="panel" data-delay="100">
+        <div class="panel-tag">Harvard / edX</div>
+        <div class="panel-top">
+          <span class="panel-icon">🎓</span>
+          <span class="panel-date">Completed</span>
+        </div>
+        <h3 class="panel-title">CS50</h3>
+        <p class="panel-company">Harvard University</p>
+        <ul class="panel-list">
+          <li>Solid foundation in computer science and programming principles.</li>
+          <li>Python expertise: data structures, file I/O, OOP, libraries and syntax.</li>
+        </ul>
+      </div>
+
+      <div class="panel" data-delay="200">
+        <div class="panel-tag">Microsoft Learn</div>
+        <div class="panel-top">
+          <span class="panel-icon">☁</span>
+          <span class="panel-date">Completed</span>
+        </div>
+        <h3 class="panel-title">Fundamentals of Azure AI Services</h3>
+        <p class="panel-company">Microsoft</p>
+        <ul class="panel-list">
+          <li>Azure Cognitive Services for vision, speech, and language tasks.</li>
+          <li>Azure ML: build, train, and deploy predictive models.</li>
+          <li>Responsible AI practices &amp; real-world AI integration.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ HONORS ═══ -->
+  <section id="honors">
+    <div class="section-label">04 — Honors &amp; Awards</div>
+    <div class="section-title">Recognition</div>
+
+    <div class="awards-list">
+
+      <div class="award-row">
+        <div class="award-num">01</div>
+        <div class="award-body">
+          <div class="award-scope">National</div>
+          <h3 class="award-title">International Mathematical Olympiad Training Camp 2025</h3>
+          <p class="award-meta">COMSATS University, Lahore &nbsp;·&nbsp; Aug 18 – 24, 2024</p>
+          <p class="award-desc">Shortlisted among the top 50 students in Pakistan. Mentored by tutors from MIT and Cambridge University in preparation for the IMO in Australia. Sharpened problem-solving and critical thinking at the highest level.</p>
+        </div>
+      </div>
+
+      <div class="award-row">
+        <div class="award-num">02</div>
+        <div class="award-body">
+          <div class="award-scope">National</div>
+          <h3 class="award-title">Certificate of Distinction — ACSEC</h3>
+          <p class="award-meta">Aitchison College &nbsp;·&nbsp; October 2023</p>
+          <p class="award-desc">Team champions at a national competition. Tasks included solving encryptions, developing programs, building bridges, delivering a presentation, and a rigorous Q&amp;A session.</p>
+        </div>
+      </div>
+
+      <div class="award-row">
+        <div class="award-num">03</div>
+        <div class="award-body">
+          <div class="award-scope">LUMS — A+</div>
+          <h3 class="award-title">Topper in ENGG 100 — Line-Following Robot</h3>
+          <p class="award-meta">LUMS Electrical Engineering &nbsp;·&nbsp; 2nd place in class cohort</p>
+          <p class="award-desc">Built a fully autonomous line-following robot using MATLAB, Arduino IDE, and electrical components. Secured 2nd position in the class and received an A+ grade.</p>
+          <!-- Robot / ENGG100 gallery -->
+          <div class="robot-gallery">
+            <div class="robot-img-wrap">
+              <img src="placeholder-car1.jpg" alt="Line-following robot — front view" onerror="this.parentElement.classList.add('img-placeholder')" />
+              <span class="img-label">Robot — Front View</span>
+            </div>
+            <div class="robot-img-wrap">
+              <img src="placeholder-car2.jpg" alt="Line-following robot — circuit" onerror="this.parentElement.classList.add('img-placeholder')" />
+              <span class="img-label">Circuit Layout</span>
+            </div>
+            <div class="robot-img-wrap">
+              <img src="placeholder-car3.jpg" alt="Line-following robot — action" onerror="this.parentElement.classList.add('img-placeholder')" />
+              <span class="img-label">Robot in Action</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ SPORTS ═══ -->
+  <section id="sports">
+    <div class="section-label">05 — Athletics</div>
+    <div class="section-title">Sports</div>
+    <div class="sports-split">
+
+      <div class="sport-card" id="sport-tennis">
+        <div class="sport-img-wrap">
+          <img src="placeholder-tennis.jpg" alt="Tennis" onerror="this.parentElement.classList.add('img-placeholder')" />
+        </div>
+        <div class="sport-info">
+          <div class="sport-icon">🎾</div>
+          <h3 class="sport-name">Tennis</h3>
+          <p class="sport-desc">Member of the official LUMS Tennis Team, competing at the university level.</p>
+        </div>
+      </div>
+
+      <div class="sport-divider"></div>
+
+      <div class="sport-card" id="sport-arm">
+        <div class="sport-img-wrap">
+          <img src="placeholder-armwrestling.jpg" alt="Arm Wrestling" onerror="this.parentElement.classList.add('img-placeholder')" />
+        </div>
+        <div class="sport-info">
+          <div class="sport-icon">💪</div>
+          <h3 class="sport-name">Arm Wrestling</h3>
+          <p class="sport-desc">High-school Arm-Wrestling Varsity Team Captain — led the team through competitive seasons.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ SIDE INTERESTS ═══ -->
+  <section id="interests">
+    <div class="section-label">06 — Side Interests</div>
+    <div class="section-title">Cinematography</div>
+    <div class="cine-wrap">
+      <div class="cine-text">
+        <p>Combined a passion for cars and cinematography into a dedicated Instagram account. Over <strong>10 000 views</strong> and growing.</p>
+        <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener" class="cine-link">@cinemetigraphy777 ↗</a>
+      </div>
+      <div class="cine-img-wrap">
+        <img src="placeholder-cine.jpg" alt="Cinematography" onerror="this.parentElement.classList.add('img-placeholder')" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ EXTRA-CURRICULARS ═══ -->
+  <section id="extracurriculars">
+    <div class="section-label">07 — Extra-Curriculars</div>
+    <div class="section-title">Leadership &amp; Involvement</div>
+    <div class="ec-grid">
+
+      <div class="ec-card">
+        <div class="ec-num">01</div>
+        <h3 class="ec-title">LUMS Consultancy Group</h3>
+        <p class="ec-role">Client Management Department</p>
+        <p class="ec-desc">Working within LCG to help the society identify and onboard new clients, building real consulting experience at university level.</p>
+      </div>
+
+      <div class="ec-card">
+        <div class="ec-num">02</div>
+        <h3 class="ec-title">Director General — Science Carnival</h3>
+        <p class="ec-role">High School Leadership</p>
+        <p class="ec-desc">Managed finances and logistics for 500+ candidates at the annual Science Carnival. Oversaw end-to-end event operations ensuring a smooth experience for all participants.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <p class="footer-name">Abdul Raheem</p>
+      <p class="footer-tagline">Computer Science · LUMS · Pakistan</p>
+      <div class="footer-emails">
+        <a href="mailto:7Abdulraheem@gmail.com" class="footer-email">
+          <span class="email-label">Personal</span>
+          7Abdulraheem@gmail.com
+        </a>
+        <a href="mailto:29100229@lums.edu.pk" class="footer-email">
+          <span class="email-label">University</span>
+          29100229@lums.edu.pk
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/GoodMorningPineapple23" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+      <p class="footer-copy">© 2025 Abdul Raheem</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
