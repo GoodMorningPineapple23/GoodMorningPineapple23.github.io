@@ -9,347 +9,359 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ════════════════════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════════════════════════ -->
   <nav id="main-nav">
     <div class="nav-logo">AR</div>
     <ul class="nav-links">
-      <li><a href="#hero">About</a></li>
+      <li><a href="#post-animation">About</a></li>
       <li><a href="#internships">Experience</a></li>
       <li><a href="#honors">Awards</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- ═══════ SECTION 1: HERO (WHITE) ═══════ -->
-  <section id="hero">
-    <!-- Floating code snippets background -->
-    <div class="code-bg" aria-hidden="true">
-      <span class="code-float" style="top:18%;left:8%;opacity:0.13;font-size:0.7rem;">&lt;div class="hero"&gt;<br>&nbsp;&lt;img src="me.png"&gt;<br>&lt;/div&gt;</span>
-      <span class="code-float" style="top:35%;left:72%;opacity:0.12;font-size:0.65rem;">{}<br>&lt;/&gt;</span>
-      <span class="code-float" style="top:60%;left:5%;opacity:0.10;font-size:0.6rem;">&lt;/html&gt;<br>&lt;/body&gt;</span>
-      <span class="code-float" style="top:20%;left:78%;opacity:0.11;font-size:0.68rem;">&lt;/&gt;</span>
-      <span class="code-float" style="top:70%;left:80%;opacity:0.12;font-size:0.6rem;">&lt;script&gt;<br>init();<br>&lt;/script&gt;</span>
-      <span class="code-float cf-bracket" style="top:28%;left:14%;font-size:1.1rem;">&lt;&gt;</span>
-      <span class="code-float cf-bracket" style="top:55%;left:82%;font-size:1.1rem;">{}</span>
-      <span class="code-float cf-bracket" style="top:45%;left:60%;font-size:0.9rem;">&lt;/&gt;</span>
-      <!-- Geometric lines -->
-      <svg class="geo-lines" viewBox="0 0 1400 800" preserveAspectRatio="none">
-        <line x1="150" y1="200" x2="400" y2="380" stroke="rgba(120,100,180,0.12)" stroke-width="1"/>
-        <line x1="400" y1="380" x2="700" y2="280" stroke="rgba(120,100,180,0.10)" stroke-width="1"/>
-        <line x1="1000" y1="150" x2="1200" y2="400" stroke="rgba(120,100,180,0.10)" stroke-width="1"/>
-        <line x1="1200" y1="400" x2="900" y2="550" stroke="rgba(180,100,120,0.10)" stroke-width="1"/>
-        <line x1="200" y1="600" x2="500" y2="450" stroke="rgba(100,120,200,0.09)" stroke-width="1"/>
-        <circle cx="400" cy="380" r="3" fill="rgba(120,100,180,0.2)"/>
-        <circle cx="1200" cy="400" r="3" fill="rgba(180,100,120,0.2)"/>
-        <circle cx="150" cy="200" r="2" fill="rgba(100,120,200,0.2)"/>
-      </svg>
-    </div>
+  <!-- ════════════════════════════════════════════════════════
+       SCROLL DRIVER
+       This tall div is the only thing that scrolls.
+       Everything inside is position:sticky / fixed.
+  ════════════════════════════════════════════════════════════ -->
+  <div id="scroll-driver">
 
-    <div class="hero-photo-wrap">
-      <img src="placeholder-profile.jpg" alt="Abdul Raheem" class="hero-photo"
-           onerror="this.style.display='none';document.querySelector('.hero-fallback').style.display='flex'"/>
-      <div class="hero-fallback">AR</div>
-    </div>
+    <!-- ── PINNED STAGE (sticky viewport) ── -->
+    <div id="pinned-stage">
 
-    <div class="hero-text">
-      <h1 class="hero-name">Abdul Raheem</h1>
-      <p class="hero-sub">Student at LUMS</p>
-    </div>
+      <!-- ░░ LAYER 0: Hero photo + UI (white theme) ░░ -->
+      <div id="layer-hero">
+        <!-- Code-snippets decorative background -->
+        <div class="code-bg" aria-hidden="true">
+          <svg class="geo-lines" viewBox="0 0 1400 900" preserveAspectRatio="none">
+            <line x1="140" y1="210" x2="390" y2="370" stroke="rgba(110,80,180,0.13)" stroke-width="1"/>
+            <line x1="390" y1="370" x2="680" y2="260" stroke="rgba(110,80,180,0.10)" stroke-width="1"/>
+            <line x1="1020" y1="140" x2="1230" y2="420" stroke="rgba(110,80,180,0.10)" stroke-width="1"/>
+            <line x1="1230" y1="420" x2="920" y2="560" stroke="rgba(180,90,120,0.10)" stroke-width="1"/>
+            <line x1="200" y1="640" x2="490" y2="460" stroke="rgba(90,110,200,0.09)" stroke-width="1"/>
+            <circle cx="390" cy="370" r="3.5" fill="rgba(110,80,180,0.22)"/>
+            <circle cx="1230" cy="420" r="3.5" fill="rgba(180,90,120,0.22)"/>
+            <circle cx="140" cy="210" r="2.5" fill="rgba(90,110,200,0.22)"/>
+          </svg>
+          <span class="cf" style="top:19%;left:7%">&lt;div class="hero"&gt;<br>&nbsp;&nbsp;&lt;img src="me.png"&gt;<br>&lt;/div&gt;</span>
+          <span class="cf" style="top:36%;left:73%">{}<br>&lt;/&gt;</span>
+          <span class="cf" style="top:62%;left:6%">&lt;/html&gt;<br>&lt;/body&gt;</span>
+          <span class="cf cfb" style="top:28%;left:13%;color:#7c5cbf;">&lt;&gt;</span>
+          <span class="cf cfb" style="top:56%;left:83%;color:#7c5cbf;">{}</span>
+          <span class="cf cfb" style="top:44%;left:61%;color:#bf5c7c;">&lt;/&gt;</span>
+          <span class="cf" style="top:72%;left:79%">&lt;script&gt;<br>init();<br>&lt;/script&gt;</span>
+        </div>
 
-    <div class="scroll-indicator">
-      <span>scroll</span>
-      <div class="scroll-arrow">&#8964;</div>
-    </div>
-  </section>
+        <!-- Profile photo — centered, fades at bottom -->
+        <div class="hero-photo-wrap">
+          <img
+            id="hero-photo"
+            src="placeholder-profile.jpg"
+            alt="Abdul Raheem"
+            onerror="this.style.display='none'; document.getElementById('hero-fallback').style.display='flex';"
+          />
+          <div id="hero-fallback">AR</div>
+        </div>
 
-  <!-- ═══════ SECTION 2: EYE → BOOK CINEMATIC TUNNEL ═══════ -->
-  <!-- This entire sequence is scroll-driven via JS -->
-  <div id="cinematic-tunnel">
-    <!-- Stage 0: Eye close-up fills screen -->
-    <div class="tunnel-stage" id="stage-eye">
-      <div class="eye-container">
-        <img src="placeholder-eye.jpg" alt="" class="eye-img"
-             onerror="this.style.display='none';document.querySelector('.eye-svg-fallback').style.display='block'"/>
-        <!-- SVG fallback eye if no photo -->
-        <svg class="eye-svg-fallback" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#1a0a00"/>
-              <stop offset="30%" stop-color="#3d1f00"/>
-              <stop offset="60%" stop-color="#6b3a00"/>
-              <stop offset="100%" stop-color="#8b5e1a"/>
-            </radialGradient>
-            <radialGradient id="pupilGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#000"/>
-              <stop offset="100%" stop-color="#0d0500"/>
-            </radialGradient>
-            <filter id="eyeBlur">
-              <feGaussianBlur stdDeviation="1.5"/>
-            </filter>
-          </defs>
-          <!-- Eyelid top curve -->
-          <path d="M0,200 Q200,20 400,180 Q600,20 800,200" fill="#c8956b" />
-          <!-- Eyelid bottom curve -->
-          <path d="M0,200 Q200,380 400,220 Q600,380 800,200" fill="#b07850" />
-          <!-- White of eye left -->
-          <ellipse cx="180" cy="200" rx="180" ry="80" fill="#f5ede8"/>
-          <!-- White of eye right -->
-          <ellipse cx="620" cy="200" rx="180" ry="80" fill="#f5ede8"/>
-          <!-- Iris -->
-          <ellipse cx="400" cy="200" rx="110" ry="110" fill="url(#irisGrad)"/>
-          <!-- Iris texture lines -->
-          <g stroke="rgba(180,120,40,0.3)" stroke-width="0.8" filter="url(#eyeBlur)">
-            <line x1="400" y1="90" x2="400" y2="310"/>
-            <line x1="320" y1="110" x2="480" y2="290"/>
-            <line x1="290" y1="200" x2="510" y2="200"/>
-            <line x1="320" y1="290" x2="480" y2="110"/>
-          </g>
-          <!-- Pupil -->
-          <ellipse cx="400" cy="200" rx="58" ry="58" fill="url(#pupilGrad)"/>
-          <!-- Eyelashes top -->
-          <g stroke="#1a0800" stroke-width="2" stroke-linecap="round">
-            <line x1="200" y1="120" x2="195" y2="88"/>
-            <line x1="240" y1="90" x2="238" y2="55"/>
-            <line x1="290" y1="68" x2="292" y2="32"/>
-            <line x1="340" y1="56" x2="344" y2="20"/>
-            <line x1="400" y1="50" x2="400" y2="14"/>
-            <line x1="460" y1="56" x2="456" y2="20"/>
-            <line x1="510" y1="68" x2="508" y2="32"/>
-            <line x1="560" y1="90" x2="562" y2="55"/>
-            <line x1="600" y1="120" x2="605" y2="88"/>
-          </g>
-          <!-- Catch light -->
-          <ellipse cx="375" cy="175" rx="14" ry="10" fill="rgba(255,255,255,0.5)"/>
-        </svg>
-        <!-- Book inside pupil (initially tiny) -->
-        <div class="book-in-pupil" id="bookInPupil">
-          <div class="tiny-book">
-            <div class="tb-left"></div>
-            <div class="tb-right"></div>
+        <!-- Name / title — bottom left -->
+        <div class="hero-text">
+          <h1 class="hero-name">Abdul Raheem</h1>
+          <p class="hero-sub">Student at LUMS</p>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="scroll-hint">
+          <span>scroll</span>
+          <div class="scroll-arr">&#8964;</div>
+        </div>
+      </div><!-- /layer-hero -->
+
+      <!-- ░░ LAYER 1: Zoomed eye (the real photo, zoomed via transform) ░░ -->
+      <!--
+        We zoom the SAME hero photo by scaling it and translating
+        toward the right eye coordinates. No new image needed.
+        If you add "eye.jpg" (close-up of your right eye) it will
+        crossfade in at the right moment for maximum realism.
+      -->
+      <div id="layer-zoom">
+        <div id="zoom-photo-wrap">
+          <img
+            id="zoom-photo"
+            src="placeholder-profile.jpg"
+            alt=""
+            aria-hidden="true"
+            onerror="this.style.display='none'"
+          />
+          <!-- Optional: swap to a dedicated eye close-up at deep zoom -->
+          <img
+            id="eye-closeup"
+            src="placeholder-eye.jpg"
+            alt=""
+            aria-hidden="true"
+            onerror="this.style.display='none'; this.style.opacity='0';"
+          />
+        </div>
+        <!-- Dark vignette that closes in as we zoom -->
+        <div id="zoom-vignette"></div>
+      </div>
+
+      <!-- ░░ LAYER 2: Pure black bg (fades in behind book) ░░ -->
+      <div id="layer-black"></div>
+
+      <!-- ░░ LAYER 3: The Book ░░ -->
+      <div id="layer-book">
+        <div id="book-scene">
+
+          <div id="the-book">
+            <!-- Stack of pages behind (gives depth) -->
+            <div class="page-stack page-stack-left"></div>
+            <div class="page-stack page-stack-right"></div>
+
+            <!-- Left page -->
+            <div class="book-page page-left">
+              <div class="page-inner">
+                <div class="page-running-head">Education History</div>
+
+                <div class="bk-entry">
+                  <span class="bk-tag">O Levels</span>
+                  <div class="bk-year">2021 – 2022</div>
+                  <div class="bk-school">FFC Grammar School and College</div>
+                  <div class="bk-grade">9A* &nbsp;·&nbsp; 1A</div>
+                  <div class="bk-subs">Urdu · Islamiyat · Pak Studies · Economics · CS · Maths · Physics · Chemistry · English · Add. Maths</div>
+                </div>
+
+                <div class="bk-entry">
+                  <span class="bk-tag">AS Levels</span>
+                  <div class="bk-year">2023 – 2024</div>
+                  <div class="bk-school">FFC Grammar School and College</div>
+                  <div class="bk-grade">5A</div>
+                  <div class="bk-subs">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
+                </div>
+
+                <div class="page-number">i</div>
+              </div>
+            </div>
+
+            <!-- Spine -->
+            <div class="book-spine"></div>
+
+            <!-- Right page -->
+            <div class="book-page page-right">
+              <div class="page-inner">
+                <div class="page-running-head">Continued</div>
+
+                <div class="bk-entry">
+                  <span class="bk-tag">A Levels</span>
+                  <div class="bk-year">2024 – 2025</div>
+                  <div class="bk-school">FFC Grammar School and College</div>
+                  <div class="bk-grade">2A* &nbsp;·&nbsp; 3A</div>
+                  <div class="bk-subs">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
+                </div>
+
+                <div class="bk-entry">
+                  <span class="bk-tag lums-tag">BSc CS</span>
+                  <div class="bk-year">2025 – Present</div>
+                  <div class="bk-school">LUMS — Lahore University of Management Sciences</div>
+                  <div class="bk-grade">Rising Sophomore</div>
+                  <div class="bk-subs">Bachelor of Science in Computer Science</div>
+                </div>
+
+                <div class="page-number">ii</div>
+              </div>
+            </div>
+          </div><!-- /the-book -->
+
+          <!-- Ground shadow -->
+          <div id="book-shadow"></div>
+        </div><!-- /book-scene -->
+      </div><!-- /layer-book -->
+
+    </div><!-- /pinned-stage -->
+
+  </div><!-- /scroll-driver -->
+
+  <!-- ════════════════════════════════════════════════════════
+       POST-ANIMATION CONTENT
+       Appears after the pinned animation finishes
+  ════════════════════════════════════════════════════════════ -->
+  <div id="post-animation">
+
+    <!-- INTERNSHIPS -->
+    <section id="internships">
+      <div class="sec-label">03 — Experience &amp; Courses</div>
+      <div class="sec-title">Internships &amp; Learning</div>
+      <div class="panels-grid">
+
+        <div class="panel" data-delay="0">
+          <div class="panel-tag">Industry Internship</div>
+          <div class="panel-top"><span class="panel-icon">⚙</span><span class="panel-date">Jul – Aug 2024</span></div>
+          <h3 class="panel-title">Student Intern</h3>
+          <p class="panel-co">Fauji Fertilizer Company Limited<br><small>Mirpur Mathelo</small></p>
+          <ul class="panel-list">
+            <li>Met mechanical, chemical &amp; electrical engineers — mapped each role's scope.</li>
+            <li>IT session deepened understanding of technology in industrial efficiency.</li>
+            <li>Advanced data management via SAP; observed firewall &amp; encryption practices.</li>
+            <li>Delivered a Web3 &amp; blockchain presentation to enhance digital infrastructure.</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-delay="120">
+          <div class="panel-tag">Harvard / edX</div>
+          <div class="panel-top"><span class="panel-icon">🎓</span><span class="panel-date">Completed</span></div>
+          <h3 class="panel-title">CS50</h3>
+          <p class="panel-co">Harvard University</p>
+          <ul class="panel-list">
+            <li>Solid foundation in computer science and programming.</li>
+            <li>Python: data structures, file I/O, OOP, libraries &amp; syntax.</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-delay="240">
+          <div class="panel-tag">Microsoft Learn</div>
+          <div class="panel-top"><span class="panel-icon">☁</span><span class="panel-date">Completed</span></div>
+          <h3 class="panel-title">Azure AI Fundamentals</h3>
+          <p class="panel-co">Microsoft</p>
+          <ul class="panel-list">
+            <li>Azure Cognitive Services — vision, speech &amp; language.</li>
+            <li>Azure ML: build, train &amp; deploy predictive models.</li>
+            <li>Responsible AI &amp; real-world integration.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HONORS -->
+    <section id="honors">
+      <div class="sec-label">04 — Honors &amp; Awards</div>
+      <div class="sec-title">Recognition</div>
+      <div class="awards-list">
+
+        <div class="award-row" data-delay="0">
+          <div class="aw-num">01</div>
+          <div class="aw-body">
+            <div class="aw-scope">National</div>
+            <h3 class="aw-title">IMO Training Camp 2025</h3>
+            <p class="aw-meta">COMSATS University, Lahore &nbsp;·&nbsp; Aug 18–24, 2024</p>
+            <p class="aw-desc">Top 50 students in Pakistan. Mentored by tutors from MIT and Cambridge. Preparing for IMO in Australia.</p>
+          </div>
+        </div>
+
+        <div class="award-row" data-delay="100">
+          <div class="aw-num">02</div>
+          <div class="aw-body">
+            <div class="aw-scope">National</div>
+            <h3 class="aw-title">Certificate of Distinction — ACSEC</h3>
+            <p class="aw-meta">Aitchison College &nbsp;·&nbsp; October 2023</p>
+            <p class="aw-desc">Team champions. Tasks: encryptions, programming, bridge-building, presentation &amp; Q&amp;A.</p>
+          </div>
+        </div>
+
+        <div class="award-row" data-delay="200">
+          <div class="aw-num">03</div>
+          <div class="aw-body">
+            <div class="aw-scope">LUMS — A+</div>
+            <h3 class="aw-title">Topper in ENGG 100 — Line-Following Robot</h3>
+            <p class="aw-meta">LUMS &nbsp;·&nbsp; 2nd place in cohort</p>
+            <p class="aw-desc">Autonomous line-following robot using MATLAB, Arduino IDE &amp; electrical components.</p>
+            <div class="robot-gallery">
+              <div class="rimg-wrap"><img src="placeholder-car1.jpg" alt="Robot" onerror="this.parentElement.classList.add('iph')"/><span class="ilbl">Front View</span></div>
+              <div class="rimg-wrap"><img src="placeholder-car2.jpg" alt="Circuit" onerror="this.parentElement.classList.add('iph')"/><span class="ilbl">Circuit</span></div>
+              <div class="rimg-wrap"><img src="placeholder-car3.jpg" alt="Action" onerror="this.parentElement.classList.add('iph')"/><span class="ilbl">In Action</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SPORTS -->
+    <section id="sports">
+      <div class="sec-label">05 — Athletics</div>
+      <div class="sec-title">Sports</div>
+      <div class="sports-split">
+        <div class="sport-card" data-delay="0">
+          <div class="sport-img"><img src="placeholder-tennis.jpg" alt="Tennis" onerror="this.parentElement.classList.add('iph')"/></div>
+          <div class="sport-info">
+            <div class="sport-icon">🎾</div>
+            <h3 class="sport-name">Tennis</h3>
+            <p class="sport-desc">Member of the official LUMS Tennis Team.</p>
+          </div>
+        </div>
+        <div class="sport-divider"></div>
+        <div class="sport-card" data-delay="150">
+          <div class="sport-img"><img src="placeholder-armwrestling.jpg" alt="Arm Wrestling" onerror="this.parentElement.classList.add('iph')"/></div>
+          <div class="sport-info">
+            <div class="sport-icon">💪</div>
+            <h3 class="sport-name">Arm Wrestling</h3>
+            <p class="sport-desc">High-school Varsity Team Captain.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Stage 1: Transition label -->
-    <div class="tunnel-label" id="tunnel-label">
-      <span class="tl-mono">02 — Education</span>
-    </div>
-  </div>
-
-  <!-- ═══════ SECTION 3: DARK — BOOK OPEN (education content) ═══════ -->
-  <section id="education">
-    <div class="section-label">02 — Education</div>
-
-    <!-- The big open book -->
-    <div class="open-book-wrap" id="openBook">
-      <div class="ob-book">
-        <div class="ob-spine"></div>
-
-        <div class="ob-page ob-left">
-          <div class="ob-page-inner">
-            <div class="ob-page-header">Education History</div>
-            <div class="edu-entry">
-              <span class="edu-tag">O Levels</span>
-              <div class="edu-year">2021 – 2022</div>
-              <div class="edu-school">FFC Grammar School and College</div>
-              <div class="edu-grade">9A* · 1A</div>
-              <div class="edu-subs">Urdu · Islamiyat · Pak Studies · Economics · CS · Maths · Physics · Chemistry · English · Add. Maths</div>
-            </div>
-            <div class="edu-entry">
-              <span class="edu-tag">AS Levels</span>
-              <div class="edu-year">2023 – 2024</div>
-              <div class="edu-school">FFC Grammar School and College</div>
-              <div class="edu-grade">5A</div>
-              <div class="edu-subs">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
-            </div>
-          </div>
+    <!-- CINEMATOGRAPHY -->
+    <section id="interests">
+      <div class="sec-label">06 — Side Interests</div>
+      <div class="sec-title">Cinematography</div>
+      <div class="cine-wrap">
+        <div class="cine-text">
+          <p>Combined a passion for cars and cinematography into a dedicated Instagram account. Over <strong>10,000 views</strong> and growing.</p>
+          <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener" class="cine-link">@cinemetigraphy777 ↗</a>
         </div>
+        <div class="cine-img"><img src="placeholder-cine.jpg" alt="Cinematography" onerror="this.parentElement.classList.add('iph')"/></div>
+      </div>
+    </section>
 
-        <div class="ob-page ob-right">
-          <div class="ob-page-inner">
-            <div class="ob-page-header">Continued</div>
-            <div class="edu-entry">
-              <span class="edu-tag">A Levels</span>
-              <div class="edu-year">2024 – 2025</div>
-              <div class="edu-school">FFC Grammar School and College</div>
-              <div class="edu-grade">2A* · 3A</div>
-              <div class="edu-subs">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
-            </div>
-            <div class="edu-entry">
-              <span class="edu-tag lums">BSc CS</span>
-              <div class="edu-year">2025 – Present</div>
-              <div class="edu-school">LUMS — Lahore University of Management Sciences</div>
-              <div class="edu-grade">Rising Sophomore</div>
-              <div class="edu-subs">Bachelor of Science in Computer Science</div>
-            </div>
-          </div>
+    <!-- EXTRA-CURRICULARS -->
+    <section id="extracurriculars">
+      <div class="sec-label">07 — Leadership</div>
+      <div class="sec-title">Extra-Curriculars</div>
+      <div class="ec-grid">
+        <div class="ec-card" data-delay="0">
+          <div class="ec-num">01</div>
+          <h3 class="ec-title">LUMS Consultancy Group</h3>
+          <p class="ec-role">Client Management Department</p>
+          <p class="ec-desc">Helping LCG identify and onboard new clients, building real consulting experience at university level.</p>
+        </div>
+        <div class="ec-card" data-delay="150">
+          <div class="ec-num">02</div>
+          <h3 class="ec-title">Director General — Science Carnival</h3>
+          <p class="ec-role">High School Leadership</p>
+          <p class="ec-desc">Managed finances and logistics for 500+ candidates. Oversaw end-to-end event operations.</p>
         </div>
       </div>
-      <div class="ob-shadow"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════ SECTION 4: INTERNSHIPS ═══════ -->
-  <section id="internships">
-    <div class="section-label">03 — Experience &amp; Courses</div>
-    <div class="section-title">Internships &amp; Learning</div>
-    <div class="panels-grid">
-      <div class="panel" data-delay="0">
-        <div class="panel-tag">Industry Internship</div>
-        <div class="panel-top"><span class="panel-icon">⚙</span><span class="panel-date">Jul – Aug 2024</span></div>
-        <h3 class="panel-title">Student Intern</h3>
-        <p class="panel-company">Fauji Fertilizer Company Limited<br><small>Mirpur Mathelo</small></p>
-        <ul class="panel-list">
-          <li>Met mechanical, chemical &amp; electrical engineers — mapped each role's scope.</li>
-          <li>Session with Head of IT — technology in industrial efficiency.</li>
-          <li>Advanced data management via SAP; observed firewall &amp; encryption practices.</li>
-          <li>Delivered a Web3 &amp; blockchain presentation to enhance digital infrastructure.</li>
-        </ul>
-      </div>
-      <div class="panel" data-delay="120">
-        <div class="panel-tag">Harvard / edX</div>
-        <div class="panel-top"><span class="panel-icon">🎓</span><span class="panel-date">Completed</span></div>
-        <h3 class="panel-title">CS50</h3>
-        <p class="panel-company">Harvard University</p>
-        <ul class="panel-list">
-          <li>Solid foundation in computer science and programming principles.</li>
-          <li>Python expertise: data structures, file I/O, OOP, libraries &amp; syntax.</li>
-        </ul>
-      </div>
-      <div class="panel" data-delay="240">
-        <div class="panel-tag">Microsoft Learn</div>
-        <div class="panel-top"><span class="panel-icon">☁</span><span class="panel-date">Completed</span></div>
-        <h3 class="panel-title">Azure AI Fundamentals</h3>
-        <p class="panel-company">Microsoft</p>
-        <ul class="panel-list">
-          <li>Azure Cognitive Services — vision, speech &amp; language.</li>
-          <li>Azure ML: build, train, deploy predictive models.</li>
-          <li>Responsible AI &amp; real-world integration.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ SECTION 5: HONORS ═══════ -->
-  <section id="honors">
-    <div class="section-label">04 — Honors &amp; Awards</div>
-    <div class="section-title">Recognition</div>
-    <div class="awards-list">
-      <div class="award-row" data-delay="0">
-        <div class="award-num">01</div>
-        <div class="award-body">
-          <div class="award-scope">National</div>
-          <h3 class="award-title">IMO Training Camp 2025</h3>
-          <p class="award-meta">COMSATS University, Lahore &nbsp;·&nbsp; Aug 18–24, 2024</p>
-          <p class="award-desc">Top 50 students in Pakistan. Mentored by tutors from MIT and Cambridge. Preparing for IMO in Australia.</p>
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="footer-inner">
+        <p class="ft-name">Abdul Raheem</p>
+        <p class="ft-tag">Computer Science · LUMS · Pakistan</p>
+        <div class="ft-emails">
+          <a href="mailto:7Abdulraheem@gmail.com" class="ft-email">
+            <span class="ft-elbl">Personal</span>7Abdulraheem@gmail.com
+          </a>
+          <a href="mailto:29100229@lums.edu.pk" class="ft-email">
+            <span class="ft-elbl">University</span>29100229@lums.edu.pk
+          </a>
         </div>
-      </div>
-      <div class="award-row" data-delay="100">
-        <div class="award-num">02</div>
-        <div class="award-body">
-          <div class="award-scope">National</div>
-          <h3 class="award-title">Certificate of Distinction — ACSEC</h3>
-          <p class="award-meta">Aitchison College &nbsp;·&nbsp; October 2023</p>
-          <p class="award-desc">Team champions. Tasks: encryptions, programming, bridge-building, presentation &amp; Q&amp;A.</p>
+        <div class="ft-links">
+          <a href="https://github.com/GoodMorningPineapple23" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener">Instagram ↗</a>
         </div>
+        <p class="ft-copy">© 2025 Abdul Raheem</p>
       </div>
-      <div class="award-row" data-delay="200">
-        <div class="award-num">03</div>
-        <div class="award-body">
-          <div class="award-scope">LUMS — A+</div>
-          <h3 class="award-title">Topper in ENGG 100 — Line-Following Robot</h3>
-          <p class="award-meta">LUMS &nbsp;·&nbsp; 2nd place in cohort</p>
-          <p class="award-desc">Autonomous line-following robot using MATLAB, Arduino IDE &amp; electrical components.</p>
-          <div class="robot-gallery">
-            <div class="robot-img-wrap"><img src="placeholder-car1.jpg" alt="Robot front" onerror="this.parentElement.classList.add('img-ph')"/><span class="img-label">Front View</span></div>
-            <div class="robot-img-wrap"><img src="placeholder-car2.jpg" alt="Circuit" onerror="this.parentElement.classList.add('img-ph')"/><span class="img-label">Circuit</span></div>
-            <div class="robot-img-wrap"><img src="placeholder-car3.jpg" alt="In action" onerror="this.parentElement.classList.add('img-ph')"/><span class="img-label">In Action</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- ═══════ SECTION 6: SPORTS ═══════ -->
-  <section id="sports">
-    <div class="section-label">05 — Athletics</div>
-    <div class="section-title">Sports</div>
-    <div class="sports-split">
-      <div class="sport-card" data-delay="0">
-        <div class="sport-img-wrap"><img src="placeholder-tennis.jpg" alt="Tennis" onerror="this.parentElement.classList.add('img-ph')"/></div>
-        <div class="sport-info">
-          <div class="sport-icon">🎾</div>
-          <h3 class="sport-name">Tennis</h3>
-          <p class="sport-desc">Member of the official LUMS Tennis Team, competing at university level.</p>
-        </div>
-      </div>
-      <div class="sport-divider"></div>
-      <div class="sport-card" data-delay="150">
-        <div class="sport-img-wrap"><img src="placeholder-armwrestling.jpg" alt="Arm Wrestling" onerror="this.parentElement.classList.add('img-ph')"/></div>
-        <div class="sport-info">
-          <div class="sport-icon">💪</div>
-          <h3 class="sport-name">Arm Wrestling</h3>
-          <p class="sport-desc">High-school Varsity Team Captain — led the team through competitive seasons.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div><!-- /post-animation -->
 
-  <!-- ═══════ SECTION 7: CINEMATOGRAPHY ═══════ -->
-  <section id="interests">
-    <div class="section-label">06 — Side Interests</div>
-    <div class="section-title">Cinematography</div>
-    <div class="cine-wrap">
-      <div class="cine-text">
-        <p>Combined a passion for cars and cinematography into a dedicated Instagram account. Over <strong>10,000 views</strong> and growing.</p>
-        <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener" class="cine-link">@cinemetigraphy777 ↗</a>
-      </div>
-      <div class="cine-img-wrap"><img src="placeholder-cine.jpg" alt="Cinematography" onerror="this.parentElement.classList.add('img-ph')"/></div>
-    </div>
-  </section>
-
-  <!-- ═══════ SECTION 8: EXTRA-CURRICULARS ═══════ -->
-  <section id="extracurriculars">
-    <div class="section-label">07 — Leadership</div>
-    <div class="section-title">Extra-Curriculars</div>
-    <div class="ec-grid">
-      <div class="ec-card" data-delay="0">
-        <div class="ec-num">01</div>
-        <h3 class="ec-title">LUMS Consultancy Group</h3>
-        <p class="ec-role">Client Management Department</p>
-        <p class="ec-desc">Helping LCG identify and onboard new clients, building real consulting experience at university level.</p>
-      </div>
-      <div class="ec-card" data-delay="150">
-        <div class="ec-num">02</div>
-        <h3 class="ec-title">Director General — Science Carnival</h3>
-        <p class="ec-role">High School Leadership</p>
-        <p class="ec-desc">Managed finances and logistics for 500+ candidates. Oversaw end-to-end event operations.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ FOOTER ═══════ -->
-  <footer id="contact">
-    <div class="footer-inner">
-      <p class="footer-name">Abdul Raheem</p>
-      <p class="footer-tagline">Computer Science · LUMS · Pakistan</p>
-      <div class="footer-emails">
-        <a href="mailto:7Abdulraheem@gmail.com" class="footer-email">
-          <span class="email-label">Personal</span>7Abdulraheem@gmail.com
-        </a>
-        <a href="mailto:29100229@lums.edu.pk" class="footer-email">
-          <span class="email-label">University</span>29100229@lums.edu.pk
-        </a>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/GoodMorningPineapple23" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener">Instagram ↗</a>
-      </div>
-      <p class="footer-copy">© 2025 Abdul Raheem</p>
-    </div>
-  </footer>
-
+  <!-- GSAP + ScrollTrigger via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
