@@ -5,271 +5,341 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abdul Raheem — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════ HERO ═══ -->
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-logo">AR</div>
+    <ul class="nav-links">
+      <li><a href="#hero">About</a></li>
+      <li><a href="#internships">Experience</a></li>
+      <li><a href="#honors">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════ SECTION 1: HERO (WHITE) ═══════ -->
   <section id="hero">
-    <canvas id="grid-canvas"></canvas>
-    <div class="hero-center">
-      <div class="profile-ring">
-        <img src="placeholder-profile.jpg" alt="Abdul Raheem" class="profile-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div class="profile-fallback">AR</div>
-      </div>
+    <!-- Floating code snippets background -->
+    <div class="code-bg" aria-hidden="true">
+      <span class="code-float" style="top:18%;left:8%;opacity:0.13;font-size:0.7rem;">&lt;div class="hero"&gt;<br>&nbsp;&lt;img src="me.png"&gt;<br>&lt;/div&gt;</span>
+      <span class="code-float" style="top:35%;left:72%;opacity:0.12;font-size:0.65rem;">{}<br>&lt;/&gt;</span>
+      <span class="code-float" style="top:60%;left:5%;opacity:0.10;font-size:0.6rem;">&lt;/html&gt;<br>&lt;/body&gt;</span>
+      <span class="code-float" style="top:20%;left:78%;opacity:0.11;font-size:0.68rem;">&lt;/&gt;</span>
+      <span class="code-float" style="top:70%;left:80%;opacity:0.12;font-size:0.6rem;">&lt;script&gt;<br>init();<br>&lt;/script&gt;</span>
+      <span class="code-float cf-bracket" style="top:28%;left:14%;font-size:1.1rem;">&lt;&gt;</span>
+      <span class="code-float cf-bracket" style="top:55%;left:82%;font-size:1.1rem;">{}</span>
+      <span class="code-float cf-bracket" style="top:45%;left:60%;font-size:0.9rem;">&lt;/&gt;</span>
+      <!-- Geometric lines -->
+      <svg class="geo-lines" viewBox="0 0 1400 800" preserveAspectRatio="none">
+        <line x1="150" y1="200" x2="400" y2="380" stroke="rgba(120,100,180,0.12)" stroke-width="1"/>
+        <line x1="400" y1="380" x2="700" y2="280" stroke="rgba(120,100,180,0.10)" stroke-width="1"/>
+        <line x1="1000" y1="150" x2="1200" y2="400" stroke="rgba(120,100,180,0.10)" stroke-width="1"/>
+        <line x1="1200" y1="400" x2="900" y2="550" stroke="rgba(180,100,120,0.10)" stroke-width="1"/>
+        <line x1="200" y1="600" x2="500" y2="450" stroke="rgba(100,120,200,0.09)" stroke-width="1"/>
+        <circle cx="400" cy="380" r="3" fill="rgba(120,100,180,0.2)"/>
+        <circle cx="1200" cy="400" r="3" fill="rgba(180,100,120,0.2)"/>
+        <circle cx="150" cy="200" r="2" fill="rgba(100,120,200,0.2)"/>
+      </svg>
     </div>
-    <div class="hero-bottom-left">
-      <p class="hero-name">Abdul Raheem</p>
-      <p class="hero-title">Student at LUMS &nbsp;·&nbsp; CS &nbsp;·&nbsp; Lahore, Pakistan</p>
+
+    <div class="hero-photo-wrap">
+      <img src="placeholder-profile.jpg" alt="Abdul Raheem" class="hero-photo"
+           onerror="this.style.display='none';document.querySelector('.hero-fallback').style.display='flex'"/>
+      <div class="hero-fallback">AR</div>
     </div>
-    <div class="scroll-hint">
+
+    <div class="hero-text">
+      <h1 class="hero-name">Abdul Raheem</h1>
+      <p class="hero-sub">Student at LUMS</p>
+    </div>
+
+    <div class="scroll-indicator">
       <span>scroll</span>
-      <div class="scroll-line"></div>
+      <div class="scroll-arrow">&#8964;</div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ EDUCATION ═══ -->
+  <!-- ═══════ SECTION 2: EYE → BOOK CINEMATIC TUNNEL ═══════ -->
+  <!-- This entire sequence is scroll-driven via JS -->
+  <div id="cinematic-tunnel">
+    <!-- Stage 0: Eye close-up fills screen -->
+    <div class="tunnel-stage" id="stage-eye">
+      <div class="eye-container">
+        <img src="placeholder-eye.jpg" alt="" class="eye-img"
+             onerror="this.style.display='none';document.querySelector('.eye-svg-fallback').style.display='block'"/>
+        <!-- SVG fallback eye if no photo -->
+        <svg class="eye-svg-fallback" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#1a0a00"/>
+              <stop offset="30%" stop-color="#3d1f00"/>
+              <stop offset="60%" stop-color="#6b3a00"/>
+              <stop offset="100%" stop-color="#8b5e1a"/>
+            </radialGradient>
+            <radialGradient id="pupilGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#000"/>
+              <stop offset="100%" stop-color="#0d0500"/>
+            </radialGradient>
+            <filter id="eyeBlur">
+              <feGaussianBlur stdDeviation="1.5"/>
+            </filter>
+          </defs>
+          <!-- Eyelid top curve -->
+          <path d="M0,200 Q200,20 400,180 Q600,20 800,200" fill="#c8956b" />
+          <!-- Eyelid bottom curve -->
+          <path d="M0,200 Q200,380 400,220 Q600,380 800,200" fill="#b07850" />
+          <!-- White of eye left -->
+          <ellipse cx="180" cy="200" rx="180" ry="80" fill="#f5ede8"/>
+          <!-- White of eye right -->
+          <ellipse cx="620" cy="200" rx="180" ry="80" fill="#f5ede8"/>
+          <!-- Iris -->
+          <ellipse cx="400" cy="200" rx="110" ry="110" fill="url(#irisGrad)"/>
+          <!-- Iris texture lines -->
+          <g stroke="rgba(180,120,40,0.3)" stroke-width="0.8" filter="url(#eyeBlur)">
+            <line x1="400" y1="90" x2="400" y2="310"/>
+            <line x1="320" y1="110" x2="480" y2="290"/>
+            <line x1="290" y1="200" x2="510" y2="200"/>
+            <line x1="320" y1="290" x2="480" y2="110"/>
+          </g>
+          <!-- Pupil -->
+          <ellipse cx="400" cy="200" rx="58" ry="58" fill="url(#pupilGrad)"/>
+          <!-- Eyelashes top -->
+          <g stroke="#1a0800" stroke-width="2" stroke-linecap="round">
+            <line x1="200" y1="120" x2="195" y2="88"/>
+            <line x1="240" y1="90" x2="238" y2="55"/>
+            <line x1="290" y1="68" x2="292" y2="32"/>
+            <line x1="340" y1="56" x2="344" y2="20"/>
+            <line x1="400" y1="50" x2="400" y2="14"/>
+            <line x1="460" y1="56" x2="456" y2="20"/>
+            <line x1="510" y1="68" x2="508" y2="32"/>
+            <line x1="560" y1="90" x2="562" y2="55"/>
+            <line x1="600" y1="120" x2="605" y2="88"/>
+          </g>
+          <!-- Catch light -->
+          <ellipse cx="375" cy="175" rx="14" ry="10" fill="rgba(255,255,255,0.5)"/>
+        </svg>
+        <!-- Book inside pupil (initially tiny) -->
+        <div class="book-in-pupil" id="bookInPupil">
+          <div class="tiny-book">
+            <div class="tb-left"></div>
+            <div class="tb-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 1: Transition label -->
+    <div class="tunnel-label" id="tunnel-label">
+      <span class="tl-mono">02 — Education</span>
+    </div>
+  </div>
+
+  <!-- ═══════ SECTION 3: DARK — BOOK OPEN (education content) ═══════ -->
   <section id="education">
     <div class="section-label">02 — Education</div>
-    <div class="book-wrapper">
-      <div class="book" id="book">
-        <div class="book-spine"></div>
-        <div class="page page-left" id="page-left">
-          <div class="page-content">
-            <div class="page-header">Academic Journey</div>
+
+    <!-- The big open book -->
+    <div class="open-book-wrap" id="openBook">
+      <div class="ob-book">
+        <div class="ob-spine"></div>
+
+        <div class="ob-page ob-left">
+          <div class="ob-page-inner">
+            <div class="ob-page-header">Education History</div>
             <div class="edu-entry">
-              <div class="edu-badge">O Levels</div>
+              <span class="edu-tag">O Levels</span>
               <div class="edu-year">2021 – 2022</div>
               <div class="edu-school">FFC Grammar School and College</div>
               <div class="edu-grade">9A* · 1A</div>
-              <div class="edu-subjects">Urdu · Islamiyat · Pak Studies · Economics · CS · Maths · Physics · Chemistry · English · Add. Maths</div>
+              <div class="edu-subs">Urdu · Islamiyat · Pak Studies · Economics · CS · Maths · Physics · Chemistry · English · Add. Maths</div>
             </div>
             <div class="edu-entry">
-              <div class="edu-badge">AS Levels</div>
+              <span class="edu-tag">AS Levels</span>
               <div class="edu-year">2023 – 2024</div>
               <div class="edu-school">FFC Grammar School and College</div>
               <div class="edu-grade">5A</div>
-              <div class="edu-subjects">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
+              <div class="edu-subs">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
             </div>
           </div>
         </div>
-        <div class="page page-right" id="page-right">
-          <div class="page-content">
-            <div class="page-header">Continued</div>
+
+        <div class="ob-page ob-right">
+          <div class="ob-page-inner">
+            <div class="ob-page-header">Continued</div>
             <div class="edu-entry">
-              <div class="edu-badge">A Levels</div>
+              <span class="edu-tag">A Levels</span>
               <div class="edu-year">2024 – 2025</div>
               <div class="edu-school">FFC Grammar School and College</div>
               <div class="edu-grade">2A* · 3A</div>
-              <div class="edu-subjects">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
+              <div class="edu-subs">Mathematics · Physics · Chemistry · Computer Science · Economics</div>
             </div>
             <div class="edu-entry">
-              <div class="edu-badge lums-badge">BSc CS</div>
+              <span class="edu-tag lums">BSc CS</span>
               <div class="edu-year">2025 – Present</div>
               <div class="edu-school">LUMS — Lahore University of Management Sciences</div>
               <div class="edu-grade">Rising Sophomore</div>
-              <div class="edu-subjects">Bachelor of Science in Computer Science</div>
+              <div class="edu-subs">Bachelor of Science in Computer Science</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="book-shadow"></div>
+      <div class="ob-shadow"></div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ INTERNSHIPS ═══ -->
+  <!-- ═══════ SECTION 4: INTERNSHIPS ═══════ -->
   <section id="internships">
     <div class="section-label">03 — Experience &amp; Courses</div>
     <div class="section-title">Internships &amp; Learning</div>
     <div class="panels-grid">
-
       <div class="panel" data-delay="0">
         <div class="panel-tag">Industry Internship</div>
-        <div class="panel-top">
-          <span class="panel-icon">⚙</span>
-          <span class="panel-date">Jul – Aug 2024</span>
-        </div>
+        <div class="panel-top"><span class="panel-icon">⚙</span><span class="panel-date">Jul – Aug 2024</span></div>
         <h3 class="panel-title">Student Intern</h3>
         <p class="panel-company">Fauji Fertilizer Company Limited<br><small>Mirpur Mathelo</small></p>
         <ul class="panel-list">
           <li>Met mechanical, chemical &amp; electrical engineers — mapped each role's scope.</li>
-          <li>Session with Head of IT deepened understanding of technology in industrial efficiency.</li>
-          <li>Learned advanced data management via customised SAP; observed firewall &amp; encryption practices.</li>
-          <li>Delivered a presentation on Web3 &amp; blockchain to enhance the company's digital infrastructure.</li>
+          <li>Session with Head of IT — technology in industrial efficiency.</li>
+          <li>Advanced data management via SAP; observed firewall &amp; encryption practices.</li>
+          <li>Delivered a Web3 &amp; blockchain presentation to enhance digital infrastructure.</li>
         </ul>
       </div>
-
-      <div class="panel" data-delay="100">
+      <div class="panel" data-delay="120">
         <div class="panel-tag">Harvard / edX</div>
-        <div class="panel-top">
-          <span class="panel-icon">🎓</span>
-          <span class="panel-date">Completed</span>
-        </div>
+        <div class="panel-top"><span class="panel-icon">🎓</span><span class="panel-date">Completed</span></div>
         <h3 class="panel-title">CS50</h3>
         <p class="panel-company">Harvard University</p>
         <ul class="panel-list">
           <li>Solid foundation in computer science and programming principles.</li>
-          <li>Python expertise: data structures, file I/O, OOP, libraries and syntax.</li>
+          <li>Python expertise: data structures, file I/O, OOP, libraries &amp; syntax.</li>
         </ul>
       </div>
-
-      <div class="panel" data-delay="200">
+      <div class="panel" data-delay="240">
         <div class="panel-tag">Microsoft Learn</div>
-        <div class="panel-top">
-          <span class="panel-icon">☁</span>
-          <span class="panel-date">Completed</span>
-        </div>
-        <h3 class="panel-title">Fundamentals of Azure AI Services</h3>
+        <div class="panel-top"><span class="panel-icon">☁</span><span class="panel-date">Completed</span></div>
+        <h3 class="panel-title">Azure AI Fundamentals</h3>
         <p class="panel-company">Microsoft</p>
         <ul class="panel-list">
-          <li>Azure Cognitive Services for vision, speech, and language tasks.</li>
-          <li>Azure ML: build, train, and deploy predictive models.</li>
-          <li>Responsible AI practices &amp; real-world AI integration.</li>
+          <li>Azure Cognitive Services — vision, speech &amp; language.</li>
+          <li>Azure ML: build, train, deploy predictive models.</li>
+          <li>Responsible AI &amp; real-world integration.</li>
         </ul>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ HONORS ═══ -->
+  <!-- ═══════ SECTION 5: HONORS ═══════ -->
   <section id="honors">
     <div class="section-label">04 — Honors &amp; Awards</div>
     <div class="section-title">Recognition</div>
-
     <div class="awards-list">
-
-      <div class="award-row">
+      <div class="award-row" data-delay="0">
         <div class="award-num">01</div>
         <div class="award-body">
           <div class="award-scope">National</div>
-          <h3 class="award-title">International Mathematical Olympiad Training Camp 2025</h3>
-          <p class="award-meta">COMSATS University, Lahore &nbsp;·&nbsp; Aug 18 – 24, 2024</p>
-          <p class="award-desc">Shortlisted among the top 50 students in Pakistan. Mentored by tutors from MIT and Cambridge University in preparation for the IMO in Australia. Sharpened problem-solving and critical thinking at the highest level.</p>
+          <h3 class="award-title">IMO Training Camp 2025</h3>
+          <p class="award-meta">COMSATS University, Lahore &nbsp;·&nbsp; Aug 18–24, 2024</p>
+          <p class="award-desc">Top 50 students in Pakistan. Mentored by tutors from MIT and Cambridge. Preparing for IMO in Australia.</p>
         </div>
       </div>
-
-      <div class="award-row">
+      <div class="award-row" data-delay="100">
         <div class="award-num">02</div>
         <div class="award-body">
           <div class="award-scope">National</div>
           <h3 class="award-title">Certificate of Distinction — ACSEC</h3>
           <p class="award-meta">Aitchison College &nbsp;·&nbsp; October 2023</p>
-          <p class="award-desc">Team champions at a national competition. Tasks included solving encryptions, developing programs, building bridges, delivering a presentation, and a rigorous Q&amp;A session.</p>
+          <p class="award-desc">Team champions. Tasks: encryptions, programming, bridge-building, presentation &amp; Q&amp;A.</p>
         </div>
       </div>
-
-      <div class="award-row">
+      <div class="award-row" data-delay="200">
         <div class="award-num">03</div>
         <div class="award-body">
           <div class="award-scope">LUMS — A+</div>
           <h3 class="award-title">Topper in ENGG 100 — Line-Following Robot</h3>
-          <p class="award-meta">LUMS Electrical Engineering &nbsp;·&nbsp; 2nd place in class cohort</p>
-          <p class="award-desc">Built a fully autonomous line-following robot using MATLAB, Arduino IDE, and electrical components. Secured 2nd position in the class and received an A+ grade.</p>
-          <!-- Robot / ENGG100 gallery -->
+          <p class="award-meta">LUMS &nbsp;·&nbsp; 2nd place in cohort</p>
+          <p class="award-desc">Autonomous line-following robot using MATLAB, Arduino IDE &amp; electrical components.</p>
           <div class="robot-gallery">
-            <div class="robot-img-wrap">
-              <img src="placeholder-car1.jpg" alt="Line-following robot — front view" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <span class="img-label">Robot — Front View</span>
-            </div>
-            <div class="robot-img-wrap">
-              <img src="placeholder-car2.jpg" alt="Line-following robot — circuit" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <span class="img-label">Circuit Layout</span>
-            </div>
-            <div class="robot-img-wrap">
-              <img src="placeholder-car3.jpg" alt="Line-following robot — action" onerror="this.parentElement.classList.add('img-placeholder')" />
-              <span class="img-label">Robot in Action</span>
-            </div>
+            <div class="robot-img-wrap"><img src="placeholder-car1.jpg" alt="Robot front" onerror="this.parentElement.classList.add('img-ph')"/><span class="img-label">Front View</span></div>
+            <div class="robot-img-wrap"><img src="placeholder-car2.jpg" alt="Circuit" onerror="this.parentElement.classList.add('img-ph')"/><span class="img-label">Circuit</span></div>
+            <div class="robot-img-wrap"><img src="placeholder-car3.jpg" alt="In action" onerror="this.parentElement.classList.add('img-ph')"/><span class="img-label">In Action</span></div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ SPORTS ═══ -->
+  <!-- ═══════ SECTION 6: SPORTS ═══════ -->
   <section id="sports">
     <div class="section-label">05 — Athletics</div>
     <div class="section-title">Sports</div>
     <div class="sports-split">
-
-      <div class="sport-card" id="sport-tennis">
-        <div class="sport-img-wrap">
-          <img src="placeholder-tennis.jpg" alt="Tennis" onerror="this.parentElement.classList.add('img-placeholder')" />
-        </div>
+      <div class="sport-card" data-delay="0">
+        <div class="sport-img-wrap"><img src="placeholder-tennis.jpg" alt="Tennis" onerror="this.parentElement.classList.add('img-ph')"/></div>
         <div class="sport-info">
           <div class="sport-icon">🎾</div>
           <h3 class="sport-name">Tennis</h3>
-          <p class="sport-desc">Member of the official LUMS Tennis Team, competing at the university level.</p>
+          <p class="sport-desc">Member of the official LUMS Tennis Team, competing at university level.</p>
         </div>
       </div>
-
       <div class="sport-divider"></div>
-
-      <div class="sport-card" id="sport-arm">
-        <div class="sport-img-wrap">
-          <img src="placeholder-armwrestling.jpg" alt="Arm Wrestling" onerror="this.parentElement.classList.add('img-placeholder')" />
-        </div>
+      <div class="sport-card" data-delay="150">
+        <div class="sport-img-wrap"><img src="placeholder-armwrestling.jpg" alt="Arm Wrestling" onerror="this.parentElement.classList.add('img-ph')"/></div>
         <div class="sport-info">
           <div class="sport-icon">💪</div>
           <h3 class="sport-name">Arm Wrestling</h3>
-          <p class="sport-desc">High-school Arm-Wrestling Varsity Team Captain — led the team through competitive seasons.</p>
+          <p class="sport-desc">High-school Varsity Team Captain — led the team through competitive seasons.</p>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ SIDE INTERESTS ═══ -->
+  <!-- ═══════ SECTION 7: CINEMATOGRAPHY ═══════ -->
   <section id="interests">
     <div class="section-label">06 — Side Interests</div>
     <div class="section-title">Cinematography</div>
     <div class="cine-wrap">
       <div class="cine-text">
-        <p>Combined a passion for cars and cinematography into a dedicated Instagram account. Over <strong>10 000 views</strong> and growing.</p>
+        <p>Combined a passion for cars and cinematography into a dedicated Instagram account. Over <strong>10,000 views</strong> and growing.</p>
         <a href="https://www.instagram.com/cinemetigraphy777" target="_blank" rel="noopener" class="cine-link">@cinemetigraphy777 ↗</a>
       </div>
-      <div class="cine-img-wrap">
-        <img src="placeholder-cine.jpg" alt="Cinematography" onerror="this.parentElement.classList.add('img-placeholder')" />
-      </div>
+      <div class="cine-img-wrap"><img src="placeholder-cine.jpg" alt="Cinematography" onerror="this.parentElement.classList.add('img-ph')"/></div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ EXTRA-CURRICULARS ═══ -->
+  <!-- ═══════ SECTION 8: EXTRA-CURRICULARS ═══════ -->
   <section id="extracurriculars">
-    <div class="section-label">07 — Extra-Curriculars</div>
-    <div class="section-title">Leadership &amp; Involvement</div>
+    <div class="section-label">07 — Leadership</div>
+    <div class="section-title">Extra-Curriculars</div>
     <div class="ec-grid">
-
-      <div class="ec-card">
+      <div class="ec-card" data-delay="0">
         <div class="ec-num">01</div>
         <h3 class="ec-title">LUMS Consultancy Group</h3>
         <p class="ec-role">Client Management Department</p>
-        <p class="ec-desc">Working within LCG to help the society identify and onboard new clients, building real consulting experience at university level.</p>
+        <p class="ec-desc">Helping LCG identify and onboard new clients, building real consulting experience at university level.</p>
       </div>
-
-      <div class="ec-card">
+      <div class="ec-card" data-delay="150">
         <div class="ec-num">02</div>
         <h3 class="ec-title">Director General — Science Carnival</h3>
         <p class="ec-role">High School Leadership</p>
-        <p class="ec-desc">Managed finances and logistics for 500+ candidates at the annual Science Carnival. Oversaw end-to-end event operations ensuring a smooth experience for all participants.</p>
+        <p class="ec-desc">Managed finances and logistics for 500+ candidates. Oversaw end-to-end event operations.</p>
       </div>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+  <!-- ═══════ FOOTER ═══════ -->
   <footer id="contact">
     <div class="footer-inner">
       <p class="footer-name">Abdul Raheem</p>
       <p class="footer-tagline">Computer Science · LUMS · Pakistan</p>
       <div class="footer-emails">
         <a href="mailto:7Abdulraheem@gmail.com" class="footer-email">
-          <span class="email-label">Personal</span>
-          7Abdulraheem@gmail.com
+          <span class="email-label">Personal</span>7Abdulraheem@gmail.com
         </a>
         <a href="mailto:29100229@lums.edu.pk" class="footer-email">
-          <span class="email-label">University</span>
-          29100229@lums.edu.pk
+          <span class="email-label">University</span>29100229@lums.edu.pk
         </a>
       </div>
       <div class="footer-links">
