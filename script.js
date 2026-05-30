@@ -1,125 +1,167 @@
-/* ─── Grid Canvas (Hero) ────────────────────────────────────── */
-(function initGrid() {
-  const canvas = document.getElementById('grid-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, cols, rows, dots = [];
+/* ═══════════════════════════════════════════════════════════
+   Abdul Raheem Portfolio — script.js
+   Handles: Nav, Cinematic Eye Tunnel, All Scroll Reveals
+   ═══════════════════════════════════════════════════════════ */
 
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    cols = Math.ceil(W / 60) + 1;
-    rows = Math.ceil(H / 60) + 1;
-    dots = [];
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        dots.push({ x: c * 60, y: r * 60, o: Math.random() * 0.3 + 0.05, s: Math.random() * 0.4 + 0.3, phase: Math.random() * Math.PI * 2, speed: 0.003 + Math.random() * 0.004 });
-      }
+'use strict';
+
+/* ─── 1. NAV THEME SWITCHER ──────────────────────────────── */
+(function initNav() {
+  const nav = document.getElementById('main-nav');
+  const hero = document.getElementById('hero');
+  if (!nav || !hero) return;
+
+  function updateNav() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 80) {
+      nav.classList.add('scrolled');
+      nav.classList.remove('white-nav');
+    } else {
+      nav.classList.remove('scrolled');
+      nav.classList.add('white-nav');
     }
   }
 
-  let t = 0;
-  let mx = W / 2, my = H / 2;
-  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    t += 0.01;
-
-    dots.forEach(d => {
-      const dist = Math.hypot(d.x - mx, d.y - my);
-      const glow = Math.max(0, 1 - dist / 260);
-      const flicker = Math.sin(t * d.speed * 100 + d.phase) * 0.5 + 0.5;
-      const alpha = d.o + glow * 0.35 + flicker * 0.05;
-      const size = d.s + glow * 1.2;
-
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200,169,110,${alpha})`;
-      ctx.fill();
-    });
-
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
+  nav.classList.add('white-nav');
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 })();
 
 
-/* ─── Scroll-Driven Book Animation ─────────────────────────── */
-(function initBook() {
-  const section = document.getElementById('education');
-  const pageL   = document.getElementById('page-left');
-  const pageR   = document.getElementById('page-right');
-  if (!section || !pageL || !pageR) return;
+/* ─── 2. CINEMATIC EYE → BOOK TUNNEL ─────────────────────── */
+(function initCinematicTunnel() {
+  const tunnel   = document.getElementById('cinematic-tunnel');
+  const eyeCont  = document.querySelector('.eye-container');
+  const bookPupil = document.getElementById('bookInPupil');
+  const tinyBook = document.querySelector('.tiny-book');
+  const tbLeft   = document.querySelector('.tb-left');
+  const tbRight  = document.querySelector('.tb-right');
+  if (!tunnel || !eyeCont || !bookPupil) return;
+
+  /*
+    Scroll sequence (scroll positions within tunnel):
+    0%   → 15%  : Eye zooms in (scale 1 → ~8)
+    15%  → 40%  : Book appears inside pupil, tiny → visible
+    40%  → 65%  : Eye fades out, background goes pure black, book grows
+    65%  → 100% : Book faces viewer (rotates from pages-up to flat/open), content readable
+  */
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function clamp01(v)     { return Math.max(0, Math.min(1, v)); }
+  function easeInOut(t)   { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+  function easeOut(t)     { return 1 - Math.pow(1 - t, 3); }
 
   function onScroll() {
-    const rect = section.getBoundingClientRect();
-    const vh   = window.innerHeight;
+    if (!tunnel) return;
+    const rect     = tunnel.getBoundingClientRect();
+    const totalH   = tunnel.offsetHeight - window.innerHeight;
+    const scrolled = -rect.top; // pixels scrolled into tunnel
+    const raw      = clamp01(scrolled / totalH);
 
-    // progress 0 → 1 while section is in view
-    const progress = Math.min(1, Math.max(0,
-      (-rect.top + vh * 0.2) / (rect.height * 0.55)
-    ));
+    /* ── Phase 0→0.2: zoom into eye ── */
+    const zoomT = clamp01(raw / 0.2);
+    const zoomE = easeInOut(zoomT);
+    const scale = lerp(1, 9, zoomE);
+    eyeCont.style.transform = `scale(${scale})`;
 
-    // pages open outward
-    const angle = progress * 50;  // 0 → 50 deg
-    pageL.style.transform = `rotateY(${-angle}deg)`;
-    pageR.style.transform  = `rotateY(${angle}deg)`;
+    /* ── Phase 0.15→0.45: book appears in pupil, grows ── */
+    const bookAppearT = clamp01((raw - 0.15) / 0.30);
+    const bookAppearE = easeOut(bookAppearT);
+    bookPupil.style.opacity = bookAppearE;
+    // book starts tiny (scale 0.05 relative to pupil) and grows
+    const bookScale = lerp(0.05, 1.6, bookAppearE);
+    bookPupil.style.transform = `translate(-50%, -50%) scale(${bookScale})`;
 
-    // fade content in once open enough
-    const opacity = progress > 0.5 ? ((progress - 0.5) / 0.5) : 0;
-    pageL.querySelectorAll('.edu-entry').forEach((el, i) => {
-      el.style.opacity = Math.min(1, opacity * 1.5 - i * 0.2);
-    });
-    pageR.querySelectorAll('.edu-entry').forEach((el, i) => {
-      el.style.opacity = Math.min(1, opacity * 1.5 - i * 0.2);
-    });
+    // Book pages spread open as it appears
+    const spread = lerp(30, 50, bookAppearE);
+    if (tbLeft) tbLeft.style.transform = `perspective(300px) rotateY(${-spread}deg)`;
+    if (tbRight) tbRight.style.transform = `perspective(300px) rotateY(${spread}deg)`;
+
+    /* ── Phase 0.35→0.60: eye fades out ── */
+    const eyeFadeT = clamp01((raw - 0.35) / 0.25);
+    const eyeFadeE = easeInOut(eyeFadeT);
+    const eyeAlpha = 1 - eyeFadeE;
+    eyeCont.style.opacity = eyeAlpha;
+
+    /* ── Phase 0.50→0.80: book rotates to face viewer ── */
+    // Starts at rotateX(-70deg) (pages facing up) → rotateX(0deg) (facing viewer)
+    const bookRotT = clamp01((raw - 0.50) / 0.35);
+    const bookRotE = easeOut(bookRotT);
+    const rotX = lerp(-70, 0, bookRotE);
+
+    // Also scale up the whole book-in-pupil
+    const finalScale = lerp(1.6, 5.5, bookRotE);
+    bookPupil.style.transform = `translate(-50%, -50%) scale(${finalScale}) rotateX(${rotX}deg)`;
+
+    /* ── Phase 0.75→1.0: book fades out, education section takes over ── */
+    const bookFadeT = clamp01((raw - 0.75) / 0.25);
+    const bookFadeE = easeInOut(bookFadeT);
+    if (raw > 0.75) {
+      bookPupil.style.opacity = 1 - bookFadeE;
+    }
   }
-
-  // initial state — entries hidden
-  document.querySelectorAll('.edu-entry').forEach(el => el.style.opacity = '0');
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
 
 
-/* ─── IntersectionObserver Reveals ─────────────────────────── */
+/* ─── 3. EDUCATION BOOK REVEAL ───────────────────────────── */
+(function initBookReveal() {
+  const book = document.getElementById('openBook');
+  if (!book) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { book.classList.add('visible'); io.unobserve(book); }
+    });
+  }, { threshold: 0.2 });
+  io.observe(book);
+})();
+
+
+/* ─── 4. INTERSECTION OBSERVER REVEALS ──────────────────── */
 (function initReveal() {
-  const io = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        const delay = e.target.dataset.delay || 0;
-        setTimeout(() => e.target.classList.add('visible'), +delay);
+        const delay = +( e.target.dataset.delay || 0);
+        setTimeout(() => e.target.classList.add('visible'), delay);
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
   document.querySelectorAll('.panel, .award-row, .sport-card, .ec-card').forEach(el => io.observe(el));
 })();
 
 
-/* ─── Image placeholder fallback ───────────────────────────── */
-document.querySelectorAll('img').forEach(img => {
-  img.addEventListener('error', function () {
-    const wrap = this.closest(
-      '.robot-img-wrap, .sport-img-wrap, .cine-img-wrap, .profile-ring'
-    );
-    if (wrap) wrap.classList.add('img-placeholder');
-  });
-});
-
-
-/* ─── Parallax subtle on hero ──────────────────────────────── */
+/* ─── 5. SUBTLE PARALLAX ON HERO PHOTO ──────────────────── */
 (function initParallax() {
-  const ring = document.querySelector('.profile-ring');
-  if (!ring) return;
+  const wrap = document.querySelector('.hero-photo-wrap');
+  if (!wrap) return;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    ring.style.transform = `translateY(${y * 0.08}px)`;
+    if (y < window.innerHeight) {
+      wrap.style.transform = `translateX(-50%) translateY(${y * 0.12}px)`;
+    }
   }, { passive: true });
+})();
+
+
+/* ─── 6. FLOATING CODE SNIPPETS ANIMATION ───────────────── */
+(function initCodeFloat() {
+  const floats = document.querySelectorAll('.code-float');
+  floats.forEach((el, i) => {
+    const baseY = parseFloat(el.style.top) || 30;
+    const amp   = 8 + Math.random() * 6;
+    const speed = 0.0004 + Math.random() * 0.0003;
+    const phase = Math.random() * Math.PI * 2;
+
+    function tick(t) {
+      const drift = Math.sin(t * speed + phase) * amp;
+      el.style.top = `calc(${baseY}% + ${drift}px)`;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
 })();
